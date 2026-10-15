@@ -340,8 +340,13 @@ body.menu-open .site-header::before { opacity: 0; }
 /* ---------- Intro ---------- */
 .intro-grid { display: grid; gap: 48px; }
 @media (min-width: 960px) {
-  .intro-grid { grid-template-columns: 5fr 7fr; gap: clamp(48px, 8vw, 130px); align-items: start; }
-  .intro-aside { position: sticky; top: 120px; }
+  .intro-grid { grid-template-columns: 5fr 7fr; gap: clamp(48px, 8vw, 130px); align-items: center; }
+  /* L'immagine si adatta all'altezza del testo: niente vuoto accanto ai testi brevi */
+  .intro-aside { align-self: stretch; display: flex; flex-direction: column; }
+  .intro-aside > .intro-figure { flex: 1 1 auto; display: flex; flex-direction: column; }
+  .intro-aside > .intro-figure:first-child { margin-top: 0; }
+  .intro-aside .intro-figure .img-wrap { position: sticky; top: 120px; flex: 1 1 auto; aspect-ratio: auto; min-height: 380px; max-height: calc(100vh - 160px); }
+  .intro-aside .intro-figure .img-wrap img { position: absolute; inset: 0; }
 }
 .intro-aside .eyebrow { margin-bottom: 26px; }
 .opener {
