@@ -362,7 +362,9 @@ body.menu-open .site-header::before { opacity: 0; }
 }
 .intro-body.no-drop p:first-child::first-letter { float: none; font-size: inherit; line-height: inherit; padding: 0; color: inherit; font-family: inherit; }
 .intro-cols p:first-child { column-span: all; font-family: var(--f-display); font-size: clamp(1.55rem, 2.6vw, 2.25rem); line-height: 1.32; color: var(--ink); max-width: 34ch; margin-bottom: 1.4em; }
-@media (min-width: 900px) { .intro-cols { columns: 2; column-gap: clamp(40px, 6vw, 90px); } .intro-cols p { break-inside: avoid; } .intro-cols p:only-child { max-width: 40ch; } }
+/* Testo dopo il lead in un'unica colonna sfalsata a destra: niente righe isolate nella seconda colonna */
+.intro-cols p:not(:first-child) { max-width: 62ch; }
+@media (min-width: 900px) { .intro-cols p:not(:first-child) { margin-left: auto; margin-right: 0; } }
 .intro-cols { max-width: 1100px; }
 .intro-body .actions { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 18px 26px; }
 .intro-body .note { font-family: var(--f-display); font-style: italic; font-size: 1.2rem; color: var(--ink-mute); }
